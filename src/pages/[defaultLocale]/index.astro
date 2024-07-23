@@ -1,0 +1,24 @@
+---
+import About from '@/components/About.astro'
+import Contact from '@/components/Contact.astro'
+import Skills from '@/components/Skills.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Layout from '@/layouts/Layout.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { lang },
+    },
+  ]
+}
+---
+
+<Layout title={t('site.desc')} desc={t('site.desc')}>
+  <About />
+  <Skills />
+  <Contact />
+</Layout>

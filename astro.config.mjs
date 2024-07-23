@@ -8,8 +8,12 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon(), tailwind(), mdx(), sitemap()],
+  output: 'server',
   i18n: {
-    defaultLocale: 'pt-br',
-    locales: ['en', 'pt-br'],
+    defaultLocale: 'pt-BR',
+    locales: ['en', 'pt-BR'],
+    routing: {
+      redirectToDefaultLocale: true,
+    },
   },
 })

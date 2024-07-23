@@ -1,9 +1,9 @@
 export const languages = {
   en: 'English',
-  'pt-br': 'Português',
+  'pt-BR': 'Português',
 }
 
-export const defaultLang = 'pt-br'
+export const defaultLang = 'pt-BR'
 export const showDefaultLang = false
 
 export const LINKS = {
@@ -12,10 +12,15 @@ export const LINKS = {
   blog: '/blog',
   contato: '/#contact',
   favicon: '/favicon.svg',
+  drewdomi: 'https://drewdomi.com',
+  github: 'https://github.com/drewdomi',
+  linkedin: 'https://linkedin.com/in/drewdomi',
+  email: 'mailto:contato@drewdomi.com',
+  discord: 'https://discord.gg/rUZRTrggat',
 }
 
 export const ui = {
-  'pt-br': {
+  'pt-BR': {
     'site.title': 'Andrew Domingues',
     'site.desc': 'Andrew Domingues portfólio',
     'site.keywords':
@@ -32,6 +37,10 @@ export const ui = {
       soluções eficientes e escaláveis. Estou pronto para enfrentar desafios e
       contribuir em qualquer equipe ou projeto em que me envolva.`,
     'about.cv': 'Ver CV',
+    'skill.title': 'Tecnologias',
+    'contact.contact': 'Contato',
+    'contact.discord': 'Comunidade Discord',
+    'drewdomi.projects': 'Projetos Drewdomi',
   },
   en: {
     'site.title': 'Andrew Domingues',
@@ -50,5 +59,9 @@ export const ui = {
       scalable solutions. I am ready to face challenges and contribute
       with my knowledge and experience to any team or project.`,
     'about.cv': 'My CV',
+    'skill.title': 'Skills',
+    'contact.contact': 'Contact',
+    'contact.discord': 'Discord Community',
+    'drewdomi.projects': 'Drewdomi Projects',
   },
 } as const

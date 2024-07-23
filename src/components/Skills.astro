@@ -1,12 +1,21 @@
 ---
+import { LINKS } from '@/i18n/ui'
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '@/i18n/utils'
 import Button from './Button.astro'
 import SectionTitle from './SectionTitle.astro'
 
 import { Icon } from 'astro-icon/components'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
 ---
 
 <section>
-  <SectionTitle title="Tecnologias" />
+  <SectionTitle title={t('skill.title')} />
 
   <div id="icons" class="mt-3 lg:flex flex-col flex-wrap">
     <div class="flex flex-wrap lg:mb-0">
@@ -64,8 +73,8 @@ import { Icon } from 'astro-icon/components'
 <div class="flex justify-center">
   <Button
     notBlank
-    href="/projects"
-    label="Projetos"
+    href={translatePath(LINKS.projects)}
+    label={t('nav.projects')}
     rightIcon="fluent:arrow-right-12-filled"
   />
 </div>

@@ -1,7 +1,12 @@
 ---
+import { LINKS } from '@/i18n/ui'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import type { CollectionEntry } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
 type Props = CollectionEntry<'projects'>['data']
 const {
@@ -29,7 +34,11 @@ const {
     </div>
     <div class="text-sm breadcrumbs mt-3 mb-2">
       <ul>
-        <li><a class="text-secondary gap-0.5" href="/projects">Projetos</a></li>
+        <li>
+          <a class="text-secondary gap-0.5" href={LINKS.projects}
+            >{t('nav.projects')}</a
+          >
+        </li>
         <li class="text-xl font-title font-medium items-center">
           {title}
           <span class="badge badge-info ml-3">{releaseDate}</span>
@@ -62,7 +71,7 @@ const {
               target="_blank"
               class="link flex items-center gap-2"
             >
-              {github?.replace('https://github.com/drewdomi/', '')}
+              {github?.replace(LINKS.github, '')}
               <Icon name="bi:box-arrow-up-right" class="w-[14px]" />
             </a>
           </p>

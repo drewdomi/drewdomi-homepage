@@ -5,10 +5,10 @@ import '@fontsource/rubik/latin-400.css'
 import '@fontsource/rubik/latin-500.css'
 import { ViewTransitions } from 'astro:transitions'
 
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

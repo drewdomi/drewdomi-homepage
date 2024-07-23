@@ -1,14 +1,17 @@
 ---
-import SectionTitle from '../../components/SectionTitle.astro'
-import CardPost from '../../components/projects/CardPost.astro'
-import Layout from '../../layouts/Layout.astro'
-
+import SectionTitle from '@/components/SectionTitle.astro'
+import CardPost from '@/components/projects/CardPost.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+
 const posts = await getCollection('projects')
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout title="Projetos Drewdomi" desc="Projetos Drewdomi">
-  <SectionTitle title="Projetos" />
+<Layout title={t('drewdomi.projects')} desc={t('drewdomi.projects')}>
+  <SectionTitle title={t('drewdomi.projects')} />
   <div class="grid mt-2 grid-cols-1 sm:grid-cols-2 gap-[40px]">
     {
       posts.map((post) => (
