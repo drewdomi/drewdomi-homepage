@@ -1,6 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { LINKS } from '../consts'
+import { LINKS } from '../i18n/ui'
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
 ---
 
 <div class="drawer">
@@ -22,17 +31,23 @@ import { LINKS } from '../consts'
     >
       <div>
         <div class="drawer-header flex justify-center my-5">
-          <img src="favicon.svg" alt="Zapred icon" width="64" />
+          <img src={LINKS.favicon} alt="Zapred icon" width="64" />
         </div>
         <ul class="flex flex-col gap-2">
           <li>
-            <a href={LINKS.about}>Início</a>
+            <a href={translatePath(LINKS.home)}>
+              {t('nav.home')}
+            </a>
           </li>
           <li>
-            <a href={LINKS.projects}>Projetos</a>
+            <a href={translatePath(LINKS.projects)}>
+              {t('nav.projects')}
+            </a>
           </li>
           <li>
-            <a href={LINKS.contato}>Contato</a>
+            <a href={translatePath(LINKS.contato)}>
+              {t('nav.contact')}
+            </a>
           </li>
         </ul>
       </div>

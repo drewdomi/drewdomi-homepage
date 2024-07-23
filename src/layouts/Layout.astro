@@ -8,6 +8,11 @@ import { ViewTransitions } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 interface Props {
   title: string
   desc: string
@@ -27,7 +32,7 @@ const { title, desc } = Astro.props
 ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝   ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═╝
 
 -->
-<html lang="pt-br">
+<html {lang}>
   <head>
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
@@ -36,12 +41,9 @@ const { title, desc } = Astro.props
     <meta name="author" content="drewdomi" />
     <meta name="generator" content={Astro.generator} />
     <meta name="copyright" content="© 2024 Andrew Domingues" />
-    <meta http-equiv="content-language" content="pt-br" />
+    <meta http-equiv="content-language" content={lang} />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta
-      name="keywords"
-      content="drewdomi, Programação, Programação WEB, Coding, Code, Sites, Sistemas Web, Cruz Vermelha Portguesa, Cruz Vermelha de Amares"
-    />
+    <meta name="keywords" content={t('site.keywords')} />
     <meta name="rating" content="general" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -1,13 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import About from '../components/About.astro'
-import Skills from '../components/Skills.astro'
 import Contact from '../components/Contact.astro'
+import Skills from '../components/Skills.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Layout from '../layouts/Layout.astro'
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout title={SITE_TITLE} desc={SITE_DESCRIPTION}>
+<Layout title={t('site.desc')} desc={t('site.desc')}>
   <About />
   <Skills />
   <Contact />
