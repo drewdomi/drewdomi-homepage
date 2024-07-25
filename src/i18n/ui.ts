@@ -1,9 +1,9 @@
 export const languages = {
   en: 'English',
-  'pt-BR': 'Português',
+  'pt-br': 'Português',
 }
 
-export const defaultLang = 'pt-BR'
+export const defaultLang = 'pt-br'
 export const showDefaultLang = false
 
 export const LINKS = {
@@ -20,7 +20,7 @@ export const LINKS = {
 }
 
 export const ui = {
-  'pt-BR': {
+  'pt-br': {
     'site.title': 'Andrew Domingues',
     'site.desc': 'Andrew Domingues portfólio',
     'site.keywords':

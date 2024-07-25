@@ -6,6 +6,7 @@ import {
   useTranslations,
 } from '@/i18n/utils'
 import { Icon } from 'astro-icon/components'
+import ChangeLanguage from './ChangeLanguage.astro'
 import SideMenu from './SideMenu.astro'
 
 const lang = getLangFromUrl(Astro.url)
@@ -16,7 +17,7 @@ const translatePath = useTranslatedPath(lang)
 <header class="shadow-md fixed w-full top-0 backdrop-blur-sm z-[2]">
   <div class="navbar p-[10px] px-5 max-w-3xl mx-auto">
     <div class="navbar-start">
-      <a href={translatePath(LINKS.home)} id="logo">
+      <a href={translatePath(LINKS.home)} id="logo" class="pl-2">
         <Icon name="logo" />
         <span class="py-[4px] px-2 font-title">DrewDomi</span>
       </a>
@@ -40,10 +41,13 @@ const translatePath = useTranslatedPath(lang)
         </li>
       </ul>
     </div>
-    <div class="navbar-end gap-4">
-      <span class="md:hidden">
-        <SideMenu />
-      </span>
+    <div class="navbar-end">
+      <div class="flex items-center gap-4">
+        <ChangeLanguage />
+        <span class="md:hidden">
+          <SideMenu />
+        </span>
+      </div>
     </div>
   </div>
 </header>

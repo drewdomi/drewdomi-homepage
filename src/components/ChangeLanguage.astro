@@ -1,0 +1,27 @@
+---
+import { getLangFromUrl } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+---
+
+<div class="h-8 w-8 gap-2">
+  {
+    lang === 'en' ? (
+      <a
+        href="/"
+        class="tooltip tooltip-bottom block text-2xl fill-current"
+        data-tip="Português"
+      >
+        🇧🇷
+      </a>
+    ) : (
+      <a
+        href="/en"
+        class="tooltip tooltip-bottom block text-2xl fill-current"
+        data-tip="English"
+      >
+        🇺🇸
+      </a>
+    )
+  }
+</div>
